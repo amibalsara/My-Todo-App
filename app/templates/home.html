@@ -1,7 +1,31 @@
-<div id="home" class="row">
+<div id="home" class="row" >
   <div class="large-6 large-offset-3">
     <h2>Home Page</h2>
 
+    <div> {{ messageFromController }}</div>
+     <div>
+    	Search: <input ng-model="query">
+    </div>
 
+    <div>
+    	<ul>
+    		<li ng-repeat="todo in todos | filter:query">
+                {{ todo.name}},
+                {{ todo.status}}
+            </li>
+            <td><button ng-click="delete($index)">Delete</button></td>
+        </ul>
+    </div>
+
+    <div>
+    	Add more ToDo Items:
+    	<input type="text" ng-model="newItem.name">
+    	<input type="text" ng-model="newItem.status">
+    	<button ng-click="add()">Add Item</button>
+    </div>
+
+    <!-- <button ng-click="delete($index)">Delete</button> -->
+
+   
   </div>
 </div>
